@@ -14,3 +14,6 @@ alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 validateCipher :: Cipher -> Bool
 validateCipher cipher = sort cipher == alphabet
+
+encode :: Cipher -> Int -> Char -> Char
+encode cipher offset char = cipher !! (((alphaPos char) + offset) `mod` 26)
