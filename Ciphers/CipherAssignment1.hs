@@ -1,6 +1,6 @@
+module CipherAssignment1 where
 import AssignmentHelp
 import Data.List
---import Data.Maybe
 
 alphabet :: String
 alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
