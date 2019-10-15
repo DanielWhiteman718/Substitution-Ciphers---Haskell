@@ -18,7 +18,9 @@ validateCipher cipher = sort cipher == alphabet
 encode :: Cipher -> Int -> Char -> Char
 encode cipher offset char = cipher !! (((alphaPos char) + offset) `mod` 26)
 
-encodeMessage :: Cipher -> Int -> String -> [Char]
-encodeMessage cipher offset message = map f 
-                                      where f x = encode cipher offset x
+
+
+
+encodeMessage :: Cipher -> Int -> String -> String
+encodeMessage cipher offset message = [encode cipher offset n | n <- message]
 
