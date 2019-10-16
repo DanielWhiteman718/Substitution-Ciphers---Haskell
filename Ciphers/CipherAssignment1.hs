@@ -16,3 +16,6 @@ encodeMessage cipher offset message = [encode cipher offset n | n <- message]
 
 reverseEncode :: Cipher -> Int -> Char -> Char
 reverseEncode cipher offset char = alphabet !! ((fromMaybe (elemIndex char cipher)) - offset)
+
+reverseEncodeMessage :: Cipher -> Int -> String -> String
+reverseEncodeMessage cipher offset message = [reverseEncode cipher offset n | n <- message] 
