@@ -35,6 +35,6 @@ statTuple :: Char -> Int -> (Char, Int)
 statTuple letter percentage = (letter, percentage)
 
 letterStats :: String -> [(Char, Int)]
-letterStats message = sortBy (\(_,a) (_,b) -> compare a b) [statTuple n (letterPerc message (allInst n message)) 
+letterStats message = sortBy (\(_,a) (_,b) -> compare b a) [statTuple n (letterPerc message (allInst n message)) 
                                                                             | n <- removeDuplicate message]
 
