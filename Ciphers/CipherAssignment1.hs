@@ -1,6 +1,7 @@
 module CipherAssignment1 where
 import AssignmentHelp
 import Data.List
+import Data.Char
 
 alphabet :: String
 alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -38,3 +39,18 @@ letterStats :: String -> [(Char, Int)]
 letterStats message = sortBy (\(_,a) (_,b) -> compare b a) [statTuple n (letterPerc message (allInst n message)) 
                                                                             | n <- removeDuplicate message]
 
+lowerLetter :: (Char, Char) -> (Char, Char)
+lowerLetter guess = ((toLower (fst guess)), snd guess)
+
+
+findGuess :: Char -> [(Char, Char)] -> (Char, Char)
+findGuess letter guessList | (length guessList == 0) = (letter, letter)
+                           | (letter == snd (guessList !! 0)) = lowerLetter (guessList !! 0)
+                           | otherwise = findGuess letter (tail guessList)
+
+replaceChar :: [(Char, Char)] -> Char -> Char
+replaceChar guessList letter = fst (findGuess letter guessList)
+
+
+partialDecode :: [(Char, Char)] -> String -> String
+partialDecode guessList message = [replaceChar guessList n | n <- message]
