@@ -19,12 +19,7 @@ reverseEncode :: Cipher -> Int -> Char -> Char
 reverseEncode cipher offset char = alphabet !! ((fromMaybe (elemIndex char cipher)) - offset)
 
 reverseEncodeMessage :: Cipher -> Int -> String -> String
-reverseEncodeMessage cipher offset message = [reverseEncode cipher offset n | n <- message] 
-
-removeDuplicate :: String -> String
-removeDuplicate [] = []
-removeDuplicate [a] = [a]
-removeDuplicate text = head text:(removeDuplicate (delete (head text) (tail text)))
+reverseEncodeMessage cipher offset message = [reverseEncode cipher offset n | n <- message]
 
 allInst :: Char -> String -> [Char]
 allInst letter message = [n | n <- message, n == letter] 
@@ -37,7 +32,7 @@ statTuple letter percentage = (letter, percentage)
 
 letterStats :: String -> [(Char, Int)]
 letterStats message = sortBy (\(_,a) (_,b) -> compare b a) [statTuple n (letterPerc message (allInst n message)) 
-                                                                            | n <- removeDuplicate message]
+                                                                            | n <- nub message]
 
 lowerLetter :: (Char, Char) -> (Char, Char)
 lowerLetter guess = ((toLower (fst guess)), snd guess)
@@ -54,3 +49,6 @@ replaceChar guessList letter = fst (findGuess letter guessList)
 
 partialDecode :: [(Char, Char)] -> String -> String
 partialDecode guessList message = [replaceChar guessList n | n <- message]
+
+lsMystery :: Char -> [(Char, Int)] 
+lsMystery letter = letterStats mystery
