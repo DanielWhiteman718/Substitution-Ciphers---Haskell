@@ -1,4 +1,5 @@
-module CipherAssignment1 where
+{- Name: Daniel Whiteman -}
+module Ciphers where
 import AssignmentHelp
 import Data.List
 import Data.Char
@@ -113,7 +114,8 @@ letterPerc message instances = percent (length instances) (length message)
    with its percentage of that string as a tuple.
    This makes use of the helper functions above -}
 letterStats :: String -> [(Char, Int)]
-letterStats message = sortBy (\(_,a) (_,b) -> compare b a) [(n, (letterPerc message (allInst n message))) | n <- nub message]
+letterStats message = sortBy (\(_,a) (_,b) -> compare b a) [(n, (letterPerc message (allInst n message))) | n <- nub message,
+                                                                                letterPerc message (allInst n message) > 0]
 
 {-Testing letterStats:
 Input: "SUNDAY"      Output: [('S',17),('U',17),('N',17),('D',17),('A',17),('Y',17)] 
