@@ -4,6 +4,11 @@ import AssignmentHelp
 import Data.List
 import Data.Char
 
+{- This is a program designed to take
+   only uppercase characters where the
+   paramter is of String or Char type -}
+
+
 -- Declaring a String constant for the alphabet
 alphabet :: String
 alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -37,6 +42,7 @@ Input: "EKMFLGDQVZNTOWYHXUSPAIBRCJ" (-3) 'M' Output: 'H'
 Input: "EKMFLGDQVZNTOWYHXUSPAIBRCJ" (-3) 'B' Output: 'L'
 Input: "EKMFLGDQVZNTOWYHXUSPAIBRCJ" 6 'W'    Output: 'X'
 Input: "EKMFLGDQVZNTOWYHXUSPAIBRCJ" 0 'W'    Output: 'B'
+Input: "EKMFLGDQVZNTOWYHXUSPAIBRCJ" 5 'B'    Output: 'B'
 **ALL TESTS PASSED** -}
 
 
@@ -84,7 +90,7 @@ reverseEncodeMessage :: Cipher -> Int -> String -> String
 reverseEncodeMessage cipher offset message = [reverseEncode cipher offset n | n <- message]
 
 {-Testing reverseEncodeMessage:
-Input: "EKMFLGDQVZNTOWYHXUSPAIBRCJ" 3 "HOVGX"       Output: "SPLIT"
+Input: "EKMFLGDQVZNTOWYHXUSPAIBRCJ" 3 "HOVGX"       Output: "leSPLIT"
 Input: "EKMFLGDQVZNTOWYHXUSPAIBRCJ" (-3) "INUS"     Output: "SHOP"
 Input: "EKMFLGDQVZNTOWYHXUSPAIBRCJ" (-3) "LTABNDFK" Output: "BIRTHDAY"
 Input: "EKMFLGDQVZNTOWYHXUSPAIBRCJ" 6 "MGGYOWTAWC"  Output: "ILLUSTRATE"
@@ -112,7 +118,10 @@ letterPerc message instances = percent (length instances) (length message)
 
 {- Returns a list of each unique character in a String
    with its percentage of that string as a tuple.
-   This makes use of the helper functions above -}
+   This makes use of the helper functions above.
+   A weakness of letterStats is that the percentages
+   are rounded to the nearest whole number so the percentages
+   of some letters, in really long messages, show up as 0%-}
 letterStats :: String -> [(Char, Int)]
 letterStats message = sortBy (\(_,a) (_,b) -> compare b a) [(n, (letterPerc message (allInst n message))) | n <- nub message,
                                                                                 letterPerc message (allInst n message) > 0]
@@ -166,6 +175,8 @@ Input: [('D','B'),('Z','G')] "BJBWGG"                       Output: "dJdWzz"
 Input: [] "FSXFHJ"                                          Output: "FSXFHJ" 
 **ALL TESTS PASSED** -}
 
+
+-- Mystery message answer
 {- ITS EASY TO BREAK A SUBSTITUTION CIPHER PROVIDED YOU HAVE A LONG ENOUGH MESSAGE STOP LETS MAKE
    THIS ONE A LITTLE BIT LONGER STOP OK IT SHOULD BE THE RIGHT SORT OF SIZE NOW STOP MAYBE NOT LETS 
    INCREASE THE MESSAGE LENGTH ABIT MORE STOP KEEP THIS MESSAGE SECRET OR SHARE IF YOU WANT THE
