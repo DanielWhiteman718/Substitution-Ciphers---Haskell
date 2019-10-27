@@ -18,7 +18,7 @@ Input: "ABCDEFGHIJKLMNOPQRSTUVWXYZ" Output: True
 Input: "ETAONIHSRLDUCMWYFGPBVKJXQZ" Output: True
 Input: "A"                          Output: False
 Input: "RLDUCMWYFGPBVKJ"            Output: False
--}
+**ALL TESTS PASSED** -}
 
 
 
@@ -36,7 +36,7 @@ Input: "EKMFLGDQVZNTOWYHXUSPAIBRCJ" (-3) 'M' Output: 'H'
 Input: "EKMFLGDQVZNTOWYHXUSPAIBRCJ" (-3) 'B' Output: 'L'
 Input: "EKMFLGDQVZNTOWYHXUSPAIBRCJ" 6 'W'    Output: 'X'
 Input: "EKMFLGDQVZNTOWYHXUSPAIBRCJ" 0 'W'    Output: 'B'
--}
+**ALL TESTS PASSED** -}
 
 
 
@@ -53,7 +53,7 @@ Input: "EKMFLGDQVZNTOWYHXUSPAIBRCJ" (-3) "SHOP"     Output: "INUS"
 Input: "EKMFLGDQVZNTOWYHXUSPAIBRCJ" (-3) "BIRTHDAY" Output: "LTABNDFK"
 Input: "EKMFLGDQVZNTOWYHXUSPAIBRCJ" 6 "ILLUSTRATE"  Output: "MGGYOWTAWC"
 Input: "EKMFLGDQVZNTOWYHXUSPAIBRCJ" 0 "ILLUSTRATE"  Output: "VTTASPUEPL"
--}
+**ALL TESTS PASSED** -}
 
 
 
@@ -71,7 +71,7 @@ Input: "EKMFLGDQVZNTOWYHXUSPAIBRCJ" (-3) 'H' Output: 'M'
 Input: "EKMFLGDQVZNTOWYHXUSPAIBRCJ" (-3) 'L' Output: 'B'
 Input: "EKMFLGDQVZNTOWYHXUSPAIBRCJ" 6 'X'    Output: 'W'
 Input: "EKMFLGDQVZNTOWYHXUSPAIBRCJ" 0 'B'    Output: 'W'
--}
+**ALL TESTS PASSED** -}
 
 
 
@@ -88,7 +88,7 @@ Input: "EKMFLGDQVZNTOWYHXUSPAIBRCJ" (-3) "INUS"     Output: "SHOP"
 Input: "EKMFLGDQVZNTOWYHXUSPAIBRCJ" (-3) "LTABNDFK" Output: "BIRTHDAY"
 Input: "EKMFLGDQVZNTOWYHXUSPAIBRCJ" 6 "MGGYOWTAWC"  Output: "ILLUSTRATE"
 Input: "EKMFLGDQVZNTOWYHXUSPAIBRCJ" 0 "VTTASPUEPL"  Output: "ILLUSTRATE"
--}
+**ALL TESTS PASSED** -}
 
 
 
@@ -124,7 +124,7 @@ Input: "LOUD"        Output: [('L',25),('O',25),('U',25),('D',25)]
 Input: "BLOODSHED"   Output: [('O',22),('D',22),('B',11),('L',11),('S',11),('H',11),('E',11)]
 Input: "BBBB"        Output: [('B',100)]
 Input: ""            Output: []
--}
+**ALL TESTS PASSED** -}
 
 
 
@@ -162,7 +162,7 @@ Input: [('S','A'),('T','J'),('O','F'),('P','V')] "EZAAJFV"  Output: "EZsstop"
 Input: [('H','P'),('E','J'),('L','O')] "TPXEJO"             Output: "ThXEel"
 Input: [('D','B'),('Z','G')] "BJBWGG"                       Output: "dJdWzz"
 Input: [] "FSXFHJ"                                          Output: "FSXFHJ" 
--}
+**ALL TESTS PASSED** -}
 
 {- ITS EASY TO BREAK A SUBSTITUTION CIPHER PROVIDED YOU HAVE A LONG ENOUGH MESSAGE STOP LETS MAKE
    THIS ONE A LITTLE BIT LONGER STOP OK IT SHOULD BE THE RIGHT SORT OF SIZE NOW STOP MAYBE NOT LETS 
